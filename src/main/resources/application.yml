@@ -1,0 +1,27 @@
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      indent_output: true
+      write-dates-as-timestamps: false
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-root.xml
+    enabled: true
+    drop-first: false
+    default-schema: public
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.globally_quoted_identifiers: true
+  sql:
+    init:
+      platform: postgres
+  datasource:
+    url: jdbc:postgresql://localhost:5444/postgres?TC_DAEMON=true
+    username: postgres
+    password: mysecretpassword
+    hikari.maximum-pool-size: 10
