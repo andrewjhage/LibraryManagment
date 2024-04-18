@@ -7,26 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+
 public class UserController {
     @Autowired
     private UserService userService;
-
     @GetMapping("/hello")
     public String helloWorld() {
         return "hello world";
     }
-
     @GetMapping("/api/service/user/{id}")
         public Integer returnId(@PathVariable("id") String id) {
         return userService.getId(id);
     }
-
     //I created this on my own
     @GetMapping("/api/service/book/{id}")
         public Integer returnBook(@PathVariable("genre") String genre) {
         return userService.getGenre(genre);
     }
-
     @PostMapping(value="/api/service/user", consumes = {"application/json"})
     public String blahBlah(@RequestBody CreateUserCommand command) {
         var title = command.getTitle();
