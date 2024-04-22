@@ -2,7 +2,6 @@ package com.example.librarymanagement.domain.user.service;
 
 import com.example.librarymanagement.domain.user.CreateBookRequest;
 import com.example.librarymanagement.domain.user.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.librarymanagement.domain.user.entities.Book;
@@ -10,8 +9,8 @@ import com.example.librarymanagement.domain.user.entities.Book;
 
 @Service
 public class BookService {
-    @Autowired
-    private BookRepository bookRepository;
+
+    public BookRepository bookRepository;
 
     public String createBook(CreateBookRequest request) {
 

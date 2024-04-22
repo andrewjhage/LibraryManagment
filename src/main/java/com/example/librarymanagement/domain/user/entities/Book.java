@@ -26,11 +26,28 @@ public class Book extends LibraryItem {
     @Getter
     @Setter
     private String genre;
+    @Getter
+    @Setter
+   //@ManyToOne
+    private String borrowedBy;
+    @Getter
+    @Setter
+    //@ManyToOne
+    private String dueDate;
+    @Getter
+    @Setter
+    private String subjectArea;
 
     @Getter
     @Setter
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MemberBook> members = new ArrayList<>();
+    @Getter
+    @Setter
+    private List<Book> borrowedBooks = new ArrayList<>();
+    @Getter
+    @Setter
+    private List<Reservation> reservations = new ArrayList<>();
 
 //
 //    public Book(String title, String author, int year, String isbn, int quantity, double lateFeePerDay) {

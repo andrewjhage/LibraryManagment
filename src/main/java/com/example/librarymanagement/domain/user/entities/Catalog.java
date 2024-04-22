@@ -1,13 +1,33 @@
 package com.example.librarymanagement.domain.user.entities;
 import com.example.librarymanagement.domain.user.enums.ItemStatus;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.security.auth.Subject;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Catalog {
+public class Catalog extends LibraryItem {
+    @Getter
+    @Setter
+    private String isbn;
+    @Getter
+    @Setter
+    private BigDecimal lateFeePerDay;
+    @Getter
+    @Setter
+    private String genre;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "catalog", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MemberBook> members = new ArrayList<>();
 //    private Map<LibraryItem, Integer> inventory;
 //    private List<Double> lateFeesCollected;
 //
@@ -109,7 +129,7 @@ public class Catalog {
 //    public List<LibraryItem> filterBySubject(String subject) {
 //        List<LibraryItem> result = new ArrayList<>();
 //        for (LibraryItem item : inventory.keySet()) {
-//            Subject itemSubject = getItemSubjecyArea(item);
+//            Subject itemSubject = getItemSubjectArea(item);
 //            if (itemSubject != null && itemSubject.equalsIgnoreCase(subject)) {
 //                result.add(item);
 //            }

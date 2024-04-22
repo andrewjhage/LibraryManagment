@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -28,6 +29,12 @@ public class Member {
     @Getter
     @Setter
     private String email;
+    @Getter
+    @Setter
+    private List<Book> borrowedBooks;
+    @Getter
+    @Setter
+    private Date registrationDate;
 
     @Getter
     @Setter

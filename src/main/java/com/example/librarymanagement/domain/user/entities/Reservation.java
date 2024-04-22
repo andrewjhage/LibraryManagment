@@ -5,23 +5,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
+
 @Entity
 @NoArgsConstructor
-public class MemberBook {
+public class Reservation {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
-    private Integer id;
+    private Long id;
+    @Getter
+    @Setter
+    private Date reservationDate;
     @Getter
     @Setter
     @ManyToOne
     private Member member;
-
     @Getter
     @Setter
     @ManyToOne
-    private Book book;
+    private Book reservedBook;
 
-
+    public void setIsActive(boolean b) {
+    }
 }

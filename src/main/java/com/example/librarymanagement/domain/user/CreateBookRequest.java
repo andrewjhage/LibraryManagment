@@ -1,6 +1,5 @@
 package com.example.librarymanagement.domain.user;
 
-import com.example.librarymanagement.domain.user.enums.ItemStatus;
 import lombok.*;
 
 import java.math.BigDecimal;

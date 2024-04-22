@@ -1,7 +1,6 @@
 package com.example.librarymanagement.domain.user.entities;
 
 
-import com.example.librarymanagement.domain.user.enums.ItemStatus;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
