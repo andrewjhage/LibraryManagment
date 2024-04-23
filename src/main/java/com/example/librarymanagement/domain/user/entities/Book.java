@@ -2,7 +2,6 @@ package com.example.librarymanagement.domain.user.entities;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
 
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -28,7 +27,7 @@ public class Book extends LibraryItem {
     private String genre;
     @Getter
     @Setter
-   //@ManyToOne
+    //@ManyToOne
     private String borrowedBy;
     @Getter
     @Setter
@@ -42,29 +41,8 @@ public class Book extends LibraryItem {
     @Setter
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MemberBook> members = new ArrayList<>();
-    @Getter
-    @Setter
-    private List<Book> borrowedBooks = new ArrayList<>();
-    @Getter
-    @Setter
-    private List<Reservation> reservations = new ArrayList<>();
 
-//
-//    public Book(String title, String author, int year, String isbn, int quantity, double lateFeePerDay) {
-//        super(title, author, year, quantity);
-//        this.isbn = isbn;
-//        this.lateFeePerDay = lateFeePerDay;
-//    }
-
-    public String getItemDetails() {
-        return "Book: " + getTitle() + " by " + getAuthor() + " )"  + getYear() + "), ISBN: " + isbn + "Quantity: " + getQuantity() + ", Status: " + getStatus();
+    public String getDetails() {
+        return "Book: " + getTitle() + " by " + getAuthor() + " )" + getYear() + "), ISBN: " + isbn + "Quantity: " + getQuantity() + ", Status: " + getStatus();
     }
-
-//    public String getIsbn(){
-//        return isbn;
-//    }
-//
-//    public BigDecimal calculateLateFees(int days) {
-//        return days * getLateFeePerDay();
-//    }
 }
